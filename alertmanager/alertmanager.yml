@@ -1,8 +1,17 @@
 global:
   resolve_timeout: 5m
 
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'kakarlapudikoushilvarma@gmail.com'
+  smtp_auth_username: 'kakarlapudikoushilvarma@gmail.com'
+  smtp_auth_password: 'ihop hmay gjqf niro'
+
 route:
-  receiver: "default"
+  receiver: email-alert
 
 receivers:
-  - name: "default"
+  - name: email-alert
+
+    email_configs:
+      - to: 'kakarlapudikoushilvarma@gmail.com'
+        send_resolved: true
